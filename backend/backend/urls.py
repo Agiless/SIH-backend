@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from backend import api  # <-- 1. Corrected import statement
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    # 2. Added the path to your API view
+    # This assumes your view is named 'save_trip_view' inside 'backend/api.py'
+    path('api/trips/', api.save_trip_view, name='save_trip'),
 ]
